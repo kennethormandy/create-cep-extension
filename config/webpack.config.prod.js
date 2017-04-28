@@ -110,15 +110,12 @@ module.exports = {
       // "url" loader works just like "file" loader but it also embeds
       // assets smaller than specified size as data URLs to avoid requests.
       {
-        include: [
-          /\.txt$/,
-          /\.ttf$/,
-        ],
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
         loader: 'url-loader',
-        query: {
+        options: {
           // limit: 10000,
-          name: 'media/[name].[ext]'
-        }
+          name: 'static/media/[name].[hash:8].[ext]',
+        },
       },
       {
         test: /\.(js|jsx)$/,
@@ -155,11 +152,20 @@ module.exports = {
       },
       // "file" loader for svg
       {
-        test: /\.svg$/,
+        exclude: [
+          /\.html$/,
+          /\.(js|jsx)$/,
+          /\.css$/,
+          /\.json$/,
+          /\.bmp$/,
+          /\.gif$/,
+          /\.jpe?g$/,
+          /\.png$/,
+        ],
         loader: 'file-loader',
         options: {
-          name: 'media/[name].[hash].[ext]'
-        }
+          name: 'static/media/[name].[hash:8].[ext]',
+        },
       }
     ]
   },

@@ -33,7 +33,7 @@ module.exports = {
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
   entry: [
-      
+
     // Include an alternative client for WebpackDevServer. A client's job is to
     // connect to WebpackDevServer by a socket and get notified about changes.
     // When you save a file, the client will either apply hot updates (in case
@@ -109,15 +109,12 @@ module.exports = {
       // smaller than specified limit in bytes as data URLs to avoid requests.
       // A missing `test` is equivalent to a match.
       {
-        include: [
-          /\.txt$/,
-          /\.ttf$/,
-        ],
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
         loader: 'url-loader',
         options: {
           // limit: 10000,
-          name: 'media/[name].[ext]'
-        }
+          name: 'static/media/[name].[hash:8].[ext]',
+        },
       },
       // Process JS with Babel.
       {
@@ -151,11 +148,20 @@ module.exports = {
       },
       // "file" loader for svg
       {
-        test: /\.svg$/,
+        exclude: [
+          /\.html$/,
+          /\.(js|jsx)$/,
+          /\.css$/,
+          /\.json$/,
+          /\.bmp$/,
+          /\.gif$/,
+          /\.jpe?g$/,
+          /\.png$/,
+        ],
         loader: 'file-loader',
         options: {
-          name: 'media/[name].[hash].[ext]'
-        }
+          name: 'static/media/[name].[hash:8].[ext]',
+        },
       }
     ]
   },
@@ -222,4 +228,3 @@ module.exports = {
     tls: 'empty'
   }
 };
-
