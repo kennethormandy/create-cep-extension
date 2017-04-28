@@ -57,7 +57,7 @@ var handleCompile;
 function setupCompiler(host, port, protocol) {
   // "Compiler" is a low-level interface to Webpack.
   // It lets us listen to some events and provide our own custom messages.
-  compiler = webpack(config, handleCompile);  
+  compiler = webpack(config, handleCompile);
 
   // "invalid" event fires when you have changed a file, and Webpack is
   // recompiling a bundle. WebpackDevServer takes care to pause serving the
@@ -111,9 +111,13 @@ function setupCompiler(host, port, protocol) {
 
     if (showInstructions) {
       console.log();
+      console.log('Debugging is available per-app:');
+      console.log();
+      console.log(' [Ai] ' + chalk.cyan(protocol + '://' + host + ':' + 3005 + '/'));
+      console.log();
       console.log('The app is running at:');
       console.log();
-      console.log('  ' + chalk.cyan(protocol + '://' + host + ':' + port + '/'));
+      console.log('      ' + chalk.cyan(protocol + '://' + host + ':' + port + '/'));
       console.log();
       console.log('Note that the development build is not optimized.');
       console.log('To create a production build, use ' + chalk.cyan(cli + ' run build') + '.');
