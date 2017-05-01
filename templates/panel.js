@@ -21,12 +21,12 @@ return `<!DOCTYPE html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./main.css">
     <title>${title}</title>
   </head>
   <body>
     <div id="root"></div>
-    <script src="./js/main.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>`
   }

@@ -63,8 +63,8 @@ module.exports = {
     // Generated JS file names (with nested folders).
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
-    filename: 'js/[name].js',
-    chunkFilename: 'js/[name].chunk.js',
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: "./"
   },
@@ -239,7 +239,7 @@ module.exports = {
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
-      filename: 'css/[name].css'
+      filename: '[name].css'
     }),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
