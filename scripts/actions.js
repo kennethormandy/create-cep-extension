@@ -129,7 +129,9 @@ function writeExtensionTemplates(env, {port}={}) {
     bundleId: BUNDLE_ID,
     bundleVersion: VERSION,
     bundleHostIds: HOST_IDS,
-    bundleHostVersions: HOST_VERSIONS
+    bundleHostVersions: HOST_VERSIONS,
+    width: PANEL_WIDTH,
+    height: PANEL_HEIGHT
   })
   fs.writeFileSync(path.join(paths.appBuild, 'CSXS/manifest.xml'), manifestContents)
 
