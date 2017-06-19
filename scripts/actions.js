@@ -26,6 +26,7 @@ const ENABLE_PLAYERDEBUGMODE = process.env.EXTENSION_ENABLE_PLAYERDEBUGMODE || '
 const TAIL_LOGS = process.env.EXTENSION_TAIL_LOGS || ''
 const HOST_IDS = process.env.EXTENSION_HOST_IDS
 const HOST_VERSIONS = process.env.EXTENSION_HOST_VERSIONS
+const HOST_IDS_AND_VERSIONS = process.env.EXTENSION_HOST_IDS_AND_VERSIONS || false
 
 
 const parentPkg = require(path.resolve(process.cwd(), './package.json'))
@@ -130,6 +131,7 @@ function writeExtensionTemplates(env, {port}={}) {
     bundleVersion: VERSION,
     bundleHostIds: HOST_IDS,
     bundleHostVersions: HOST_VERSIONS,
+    bundleHostIdsAndVersions: HOST_IDS_AND_VERSIONS,
     width: PANEL_WIDTH,
     height: PANEL_HEIGHT
   })

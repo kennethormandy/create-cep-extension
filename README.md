@@ -8,7 +8,7 @@ It's recommended to download and start from the [example project](https://github
 
 ````yarn add -D create-cep-extension````
 
-Then add these scripts to your package.json. 
+Then add these scripts to your package.json.
 
 ````json
 "scripts": {
@@ -33,13 +33,19 @@ EXTENSION_CERTIFICATE="certificate.p12"
 
 ### Target Hosts
 
-By default, the extension will target all known Adobe hosts. To target specific hosts, add a `EXTENSION_HOST_IDS` variable to your `.env` with a comma delimited list of the host id's you want to target.
+By default, the extension will target all known versions of all Adobe hosts. To target specific hosts, add a `EXTENSION_HOST_IDS` variable to your `.env` with a comma delimited list of the host id's you want to target.
 
 For example, to target just In Design and After Effects, you would add this to your `.env` file:
 
 ````bash
 EXTENSION_HOST_IDS="IDSN, AEFT"
 ````
+
+If you want to target specific versions of specific host IDs, you can add a JSON object of `EXTENSION_HOST_IDS_AND_VERSIONS` to your `.env` file:
+
+```bash
+EXTENSION_HOST_IDS_AND_VERSIONS='{ "IDSN": "[11.0,99.9]", "ILST": "[19.2.1,99.9]" }'
+```
 
 ## Usage
 
