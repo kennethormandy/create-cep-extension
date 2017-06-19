@@ -28,8 +28,8 @@ const HOST_IDS = process.env.EXTENSION_HOST_IDS
 const HOST_VERSIONS = process.env.EXTENSION_HOST_VERSIONS
 
 
-const package = require('../package.json')
-const VERSION = package.version.split('-')[0] // because ae doesnt load extensions that arent in the exact format '1.0.0'
+const parentPkg = require(path.resolve(process.cwd(), './package.json'))
+const VERSION = parentPkg.version.split('-')[0] // because ae doesnt load extensions that arent in the exact format '1.0.0'
 
 // const zxpPath = (function () {
 //   var exec_name = require('zxp-provider').bin;
