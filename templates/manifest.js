@@ -54,8 +54,8 @@ module.exports = function ({
           <Menu>${bundleName}</Menu>
           <Geometry>
             <Size>
-              <Height>${width}</Height>
-              <Width>${height}</Width>
+              <Height>${height}</Height>
+              <Width>${width}</Width>
             </Size>
           </Geometry>
         </UI>
