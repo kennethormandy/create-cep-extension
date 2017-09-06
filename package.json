@@ -1,6 +1,6 @@
 {
   "name": "@kennethormandy/create-cep-extension",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "repository": "https://github.com/kennethormandy/create-cep-extension",
   "license": "MIT",
   "dependencies": {
