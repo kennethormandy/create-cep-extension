@@ -49,6 +49,16 @@ EXTENSION_HOST_IDS_AND_VERSIONS='{ "IDSN": "[11.0,99.9]", "ILST": "[19.2.1,99.9]
 
 ## Usage
 
+### Before you start…
+
+Before running the start script for the first time, you’ll need to enable unsigned extensions so the hot reloading frame for your extension will work. To do this, run:
+
+```
+defaults write com.adobe.CSXS.8 PlayerDebugMode 1
+```
+
+…replacing `8` with the `CEP` version you’re targeting.
+
 ### Development
 
 ````yarn run start````
