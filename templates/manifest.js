@@ -8,10 +8,13 @@ module.exports = function ({
   cepVersion = '6.0',
   width = '500',
   height = '500',
+  icons = false,
   cefParams = ['--allow-file-access-from-files', '--allow-file-access', '--enable-nodejs', '--mixed-context']
 }) {
   var commandLineParams = cefParams.map(cefParam => `<Parameter>${cefParam}</Parameter>`)
   var hosts = []
+  var iconsParams = ''
+
   if (bundleHostIdsAndVersions) {
     var hostIdObj = JSON.parse(bundleHostIdsAndVersions)
     for (var app in hostIdObj) {
@@ -19,6 +22,16 @@ module.exports = function ({
     }
   } else {
     hosts = bundleHostIds.split(',').map(bundleHostId => `<Host Name="${bundleHostId.trim()}" Version="${bundleHostVersions}" />`)
+  }
+
+  if (icons == true) {
+    // https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_8.x/Documentation/CEP%208.0%20HTML%20Extension%20Cookbook.md#high-dpi-panel-icons
+    icons = '<Icons>
+            <Icon Type="Normal">./images/IconLight.png</Icon>
+            <Icon Type="RollOver">./images/IconLight.png</Icon>
+            <Icon Type="DarkNormal">./images/IconDark.png</Icon>
+            <Icon Type="DarkRollOver">./images/IconDark.png</Icon>
+          </Icons>'
   }
 
   return `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -58,6 +71,7 @@ module.exports = function ({
               <Width>${width}</Width>
             </Size>
           </Geometry>
+          ${iconsParams}
         </UI>
       </DispatchInfo>
     </Extension>
