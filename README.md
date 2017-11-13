@@ -33,13 +33,13 @@ EXTENSION_CERTIFICATE="certificate.p12"
 
 ### Icons
 
-Panel icons are supported by adding the following environment variable:
+Per the convention in the CEP documentation, add an `IconLight.png`, `IconDark.png`, and `@2X` versions of your icon into `build/images`. In the future, Create CEP Extension should create default icons for you when you set up your project in the first place.
+
+Panel icons enabled by default, but can be removed with the following environment variable:
 
 ```bash
-EXTENSION_PANEL_ICONS=true
+EXTENSION_PANEL_ICONS=false
 ```
-
-Then, per the convention in the CEP documentation, add an `IconLight.png`, `IconDark.png`, and `@2X` versions of your icon into `src/images`. In the future, Create CEP Extension should create default icons for you when you set up your project in the first place.
 
 ### Target Hosts
 
@@ -144,4 +144,3 @@ If you get errors when running ````yarn run bin````, you probably need to build 
 * Create boilerplate script.
 * Create CEP Extension should create default icons for you when you set up your project in the first place.
 * Script to initially create ````certificate.p12````. Still need to do that part manually up front right now.
-* Create ````.jsxbin````'s automatically and smoothly. Adobe has made this nearly impossible to do on macOS, so not sure if its worth the trouble. Especially since .jsxbin doesn't really deter hackers.
