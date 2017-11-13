@@ -27,7 +27,7 @@ const TAIL_LOGS = process.env.EXTENSION_TAIL_LOGS || ''
 const HOST_IDS = process.env.EXTENSION_HOST_IDS
 const HOST_VERSIONS = process.env.EXTENSION_HOST_VERSIONS
 const HOST_IDS_AND_VERSIONS = process.env.EXTENSION_HOST_IDS_AND_VERSIONS || false
-
+const PANEL_ICONS = process.env.EXTENSION_PANEL_ICONS || true
 
 const parentPkg = require(path.resolve(process.cwd(), './package.json'))
 const VERSION = parentPkg.version.split('-')[0] // because ae doesnt load extensions that arent in the exact format '1.0.0'
@@ -133,7 +133,8 @@ function writeExtensionTemplates(env, {port}={}) {
     bundleHostVersions: HOST_VERSIONS,
     bundleHostIdsAndVersions: HOST_IDS_AND_VERSIONS,
     width: PANEL_WIDTH,
-    height: PANEL_HEIGHT
+    height: PANEL_HEIGHT,
+    icons: PANEL_ICONS,
   })
   fs.writeFileSync(path.join(paths.appBuild, 'CSXS/manifest.xml'), manifestContents)
 

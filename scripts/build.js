@@ -117,9 +117,9 @@ function printErrors(summary, errors) {
 
 // Create the production build and print the deployment instructions.
 function build(previousSizeMap) {
-  createBuildFolder()
+  // createBuildFolder()
   // Merge with the public folder
-  // copyPublicFolder();
+  copyPublicFolder();
 
   console.log('Writing extension templates')
   writeExtensionTemplates('prod')
